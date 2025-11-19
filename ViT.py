@@ -67,7 +67,7 @@ class PatchEmbedding(nn.Module):
             resized_pos_embed = F.interpolate(
             patch_pos_embed, 
             size=(N_new, N_new), # (24, 24)
-            mode='bicubic', 
+            mode='bilinear', 
             align_corners=False # ViT 논문에서 권장
             )
             resized_pos_embed = resized_pos_embed.permute(0, 2, 3, 1).flatten(1, 2)
